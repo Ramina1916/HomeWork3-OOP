@@ -14,17 +14,14 @@ namespace hw03_task02
         public Person(string name, int age)
         {
             // validate arguments of constructor
-            if (name == null)
-                throw new ArgumentNullException("Name can not be null, buddy!");
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException("{0} can not be null or empty, buddy!", nameof(name)); // nameof is used to get the name of the parameter as a string
             else if (age <= 0)
-                throw new ArgumentOutOfRangeException("Age can not be less than or equal to zero, buddy!");
+                throw new ArgumentOutOfRangeException("{0} can not be less than or equal to zero, buddy!", nameof(age));
             else if (age > 120)
-                throw new ArgumentOutOfRangeException("You are no spring chicken, buddy!");
-            else
-            {
-                Name = name;
-                Age = age;
-            }
+                throw new ArgumentOutOfRangeException("{0} can not be greater than 120, buddy!", nameof(age));
+            Name = name;
+            Age = age;
         }
 
         // mark a virtual so derived classes can override

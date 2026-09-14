@@ -13,13 +13,11 @@ namespace hw03_task02
         // constructor
         public Student(string name, int age, string studentId, string major) : base(name, age)
         {
-            if(studentId == null || major == null)
-                throw new ArgumentNullException("StudentID and Major can not be null, buddy!");
-            else
-            {
-                StudentID = studentId;
-                Major = major;
-            }
+            if (string.IsNullOrEmpty(studentId) || string.IsNullOrEmpty(major))
+                throw new ArgumentNullException($"{nameof(studentId)} and {nameof(major)} can not be null or empty, buddy!");
+
+            StudentID = studentId;
+            Major = major;
         }
 
         public override string GetDetails()
