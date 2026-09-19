@@ -13,7 +13,7 @@ namespace hw03_task03
         // constructor for clothing class that takes name, price, size, and material as parameters
         public Clothing(string name, decimal price, string size, string material) : base(name, price)
         {
-            if(size == null && material == null) throw new ArgumentNullException("Size and Material cannot be null, buddy!");
+            if(string.IsNullOrEmpty(size) && string.IsNullOrEmpty(material)) throw new ArgumentNullException("Size and Material cannot be null, buddy!");
             Material = material;
             Size = size;
         }

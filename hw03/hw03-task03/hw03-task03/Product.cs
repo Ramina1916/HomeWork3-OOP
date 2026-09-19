@@ -13,7 +13,7 @@ namespace hw03_task03
         // constructor for product class that takes name and price as parameters
         public Product(string name, decimal price)
         {
-            if (name == null) throw new ArgumentNullException("Product name can not be null, buddy!");
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("Product name can not be null, buddy!");
             if (price < 0) throw new ArgumentOutOfRangeException("Price cannot be negative, buddy!");
             else
             {
