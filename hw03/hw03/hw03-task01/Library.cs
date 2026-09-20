@@ -13,7 +13,7 @@ namespace hw03.hw03_task01
         public void AddBook(Book book)
         {
             // if user add null object
-            if (book == null) throw new ArgumentNullException("Book cannot be null, friend!");
+            if (book is null) throw new ArgumentNullException("Book cannot be null, friend!");
 
             books.Add(book);
             Console.WriteLine($"Book '{book.Title}' added successfully.");
@@ -23,9 +23,9 @@ namespace hw03.hw03_task01
         // borrow a book from the library
         public void BorrowBook(string title)
         {
-            if (title == null) throw new ArgumentNullException("Title cannot be null, friend!");
+            if (title is null) throw new ArgumentNullException("Title cannot be null, friend!");
 
-            else if (books == null || books.Count == 0) Console.WriteLine("No books available in the library :(");
+            else if (books is null || books.Count == 0) Console.WriteLine("No books available in the library :(");
 
             foreach (Book book in books)
             {
@@ -51,7 +51,7 @@ namespace hw03.hw03_task01
         // return a book to the library
         public void ReturnBook(string title)
         {
-            if (title == null) throw new ArgumentNullException("Title cannot be null, friend!");
+            if (string.IsNullOrEmpty(title)) throw new ArgumentNullException("Title cannot be null, friend!");
 
             foreach (Book book in books)
             {
